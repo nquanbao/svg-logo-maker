@@ -4,14 +4,13 @@ const Shape = require('./lib/shapes.js')
 const Text = require('./lib/text.js')
 
 
-const LogoSVG = () =>
-`<svg width="800" height="800" viewBox="-70.5 -70.5 391 391" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+const LogoSVG = ({textcolor,shapecolor},userShapeData,userTextData) =>
+`<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="800" height="800" viewBox="-70.5 -70.5 391 391" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <g opacity="1.0">
-	<circle cx="150" cy="120" r="80" fill="green" />
-  	<polygon points="150, 18 244, 182 56, 182" fill="yellow"/>
-	<rect x="88" y="59" width="125" height="125" fill="red"/>
-	<text x="110" y="135"><tspan font-weight="bold" font-size="40px" fill="white">SVG</tspan></text>
+	${userShapeData} fill="${shapecolor}" />
+	<text x="110" y="135"><tspan font-weight="bold" font-size="40px" fill="${textcolor}">${userTextData}</tspan></text>
 
 </g>
 </svg>
@@ -26,7 +25,7 @@ inquirer
     },
     {
       type: 'input',
-      name: 'text-color',
+      name: 'textcolor',
       message: 'What was your text color?',
     },
     {
@@ -37,12 +36,19 @@ inquirer
     },
     {
         type: 'input',
-        name: 'shape-color',
+        name: 'shapecolor',
         message: 'What is your shape color?',
     }
   ])
   .then((answers) => {
-    const readmecontent = LogoSVG();
+    const usershape = new Shape (answers.shape);
+    const usertext = new Text (answers.text);
+    const userShapeData = usershape.checkShape(usershape.shape);
+    const userTextData = usertext.checkText(usertext.text);
+    // console.log(userShapeData);
+    // console.log(userTextData);
+
+    const readmecontent = LogoSVG(answers,userShapeData,userTextData);
     fs.writeFile('./example/logo.svg', readmecontent, (err) =>
     err ? console.log(err) : console.log('Generated logo.svg !')
     )}
