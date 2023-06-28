@@ -6,7 +6,7 @@ const Text = require('./lib/text.js')
 
 const LogoSVG = ({textcolor,shapecolor},userShapeData,userTextData) =>
 `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="800" height="800" viewBox="-70.5 -70.5 391 391" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="300" height="200" viewBox="-70.5 -70.5 391 391" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <g opacity="1.0">
 	${userShapeData} fill="${shapecolor}" />
