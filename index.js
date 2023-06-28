@@ -47,7 +47,7 @@ inquirer
           const userShapeData = usershape.checkShape(usershape.shape);
           const userTextData = usertext.checkText(usertext.text);
           const logo = LogoSVG(answers,userShapeData,userTextData);
-          fs.writeFile('./exmaple/logo.svg', logo, (err) =>
+          fs.writeFile('./example/logo.svg', logo, (err) =>
           err ? console.log(err) : console.log('Generated logo.svg !')
         )
       } else {
