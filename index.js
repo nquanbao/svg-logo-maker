@@ -41,15 +41,18 @@ inquirer
     }
   ])
   .then((answers) => {
-    const usershape = new Shape (answers.shape);
-    const usertext = new Text (answers.text);
-    const userShapeData = usershape.checkShape(usershape.shape);
-    const userTextData = usertext.checkText(usertext.text);
-    // console.log(userShapeData);
-    // console.log(userTextData);
-
-    const readmecontent = LogoSVG(answers,userShapeData,userTextData);
-    fs.writeFile('./example/logo.svg', readmecontent, (err) =>
-    err ? console.log(err) : console.log('Generated logo.svg !')
-    )}
+      if(answers.text.length === 3) {
+          const usershape = new Shape (answers.shape);
+          const usertext = new Text (answers.text);
+          const userShapeData = usershape.checkShape(usershape.shape);
+          const userTextData = usertext.checkText(usertext.text);
+          const logo = LogoSVG(answers,userShapeData,userTextData);
+          fs.writeFile('./exmaple/logo.svg', logo, (err) =>
+          err ? console.log(err) : console.log('Generated logo.svg !')
+        )
+      } else {
+          console.log('Your text have to have maximum 3 characters!!')
+        }
+    }
   )
+  

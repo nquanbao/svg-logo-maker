@@ -2,8 +2,8 @@
 <svg width="800" height="800" viewBox="-70.5 -70.5 391 391" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <g opacity="1.0">
-	<polygon points="150, 18 244, 182 56, 182" fill="green" />
-	<text x="110" y="135"><tspan font-weight="bold" font-size="40px" fill="red">RED</tspan></text>
+	<circle cx="150" cy="120" r="80" fill="red" />
+	<text x="110" y="135"><tspan font-weight="bold" font-size="40px" fill="black">SVG</tspan></text>
 
 </g>
 </svg>
