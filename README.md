@@ -30,7 +30,7 @@
 ## Usage
 
 ![Sreenshot of App](./img/Screenshot.png)
-![Link to a walkthrough video](https://drive.google.com/file/d/1dGC-LoOSwW1RYmnThmIzAbbFKvBeK4Sl/view)
+[Link to a walkthrough video](https://drive.google.com/file/d/1dGC-LoOSwW1RYmnThmIzAbbFKvBeK4Sl/view)
 
 ## License
 
